@@ -1,0 +1,14 @@
+name: Ginger Mojito
+ingredients:
+  booze:
+    - Captain
+  fresh:
+    - Lime
+    - Mint
+  pantry:
+    - Ginger simple
+    - Soda
+preparations:
+  Ginger simple:
+    - Ginger
+    - Sugar
