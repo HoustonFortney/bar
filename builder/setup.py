@@ -1,9 +1,8 @@
 from setuptools import setup
 
 setup(
-    name='yourscript',
+    name='menu-builder',
     version='0.1.0',
-    py_modules=['yourscript'],
     install_requires=[
         'Click',
         'PyYAML',
