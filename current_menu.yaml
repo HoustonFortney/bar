@@ -10,15 +10,15 @@ Favorites:
   drinks:
     - Aviation
     - Margarita
-    - Mermaid Water
-    - Vodka Pear
-    - Ginger Mojito
+    - Gin and Tonic
+    - Mule
 
-Classics:
+More:
   description: "Popular standard requests"
   drinks:
-    - Disaronno Sour
-    - Mule
-    - Gin and Tonic
+    - Mermaid Water
+    - Vodka Pear
     - Last Word
+    - Ginger Mojito
+    - Disaronno Sour
     - White Russian
