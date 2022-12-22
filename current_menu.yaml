@@ -1,0 +1,24 @@
+Experiments:
+  description: "I am still working on these"
+  drinks:
+    - Black and Blue Manhattan
+    - Hot Girl
+    - Warm Blanket
+
+Favorites:
+  description: "I make these all the time"
+  drinks:
+    - Aviation
+    - Margarita
+    - Mermaid Water
+    - Vodka Pear
+    - Ginger Mojito
+
+Classics:
+  description: "Popular standard requests"
+  drinks:
+    - Disaronno Sour
+    - Mule
+    - Gin and Tonic
+    - Last Word
+    - White Russian

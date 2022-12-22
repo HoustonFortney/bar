@@ -1,0 +1,6 @@
+.idea
+/venv/
+results.xml
+__pycache__
+*.egg-info
+sandbox.py
