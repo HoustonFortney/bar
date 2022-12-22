@@ -1,0 +1,51 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@2.1.1
+  node: circleci/node@4.1
+  aws-s3: circleci/aws-s3@2.0
+
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.10-node
+    steps:
+      - checkout
+      - python/install-packages:
+          app-dir: builder
+          pkg-manager: pip-dist
+          pip-dependency-file: setup.py
+      - run:
+          name: Generate menu and shopping list
+          command: |
+            build-menu
+            build-shopping-list
+      - node/install-packages:
+          app-dir: display
+      - run:
+          name: Build display app
+          command: cd display && npm run build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - display/build/*
+  deploy:
+    docker:
+      - image: cimg/python:3.10-node
+    steps:
+      - attach_workspace:
+          at: .
+      - aws-s3/sync:
+          from: display/build
+          to: s3://${STATIC_SITE_BUCKET_NAME}
+
+workflows:
+  main:
+    jobs:
+      - build
+      - deploy:
+          requires:
+              - build
+          filters:
+            branches:
+              only: main

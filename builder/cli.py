@@ -8,7 +8,7 @@ import yaml
 
 
 def get_all_drinks():
-    drink_files = glob('../drinks/*.yaml')
+    drink_files = glob('drinks/*.yaml')
     for drink_file_name in drink_files:
         with open(drink_file_name) as drink_file:
             yield yaml.safe_load(drink_file)
@@ -24,12 +24,6 @@ def get_drink(drink_name):
         if drink['name'] == drink_name:
             return drink
     raise KeyError('Drink %s not known', drink_name)
-
-
-def get_current_menu():
-    with open('../current_menu.yaml') as menu:
-        menu = yaml.safe_load(menu)
-    return menu
 
 
 def build_drink_description(drink):
@@ -68,8 +62,8 @@ def _build_shopping_list(menu):
 
 
 @click.command()
-@click.option('--menu', default='../current_menu.yaml', help='Menu file to build')
-@click.option('--output', default='../display/src/data/menu.json', help='Output file')
+@click.option('--menu', default='current_menu.yaml', help='Menu file to build')
+@click.option('--output', default='display/src/data/menu.json', help='Output file')
 def build_menu(menu, output):
     with open(menu) as menu_file:
         menu = yaml.safe_load(menu_file)
@@ -79,8 +73,8 @@ def build_menu(menu, output):
 
 
 @click.command()
-@click.option('--menu', default='../current_menu.yaml', help='Menu file to build')
-@click.option('--output', default='../display/public/shopping_list.json', help='Output file')
+@click.option('--menu', default='current_menu.yaml', help='Menu file to build')
+@click.option('--output', default='display/public/shopping_list.json', help='Output file')
 def build_shopping_list(menu, output):
     with open(menu) as menu_file:
         menu = yaml.safe_load(menu_file)
