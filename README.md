@@ -11,3 +11,7 @@ pip install -e ./builder
 build-menu
 cd display && npm start
 ```
+
+## Contributing
+
+Open to *Pour* Requests
