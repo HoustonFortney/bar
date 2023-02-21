@@ -15,6 +15,9 @@ jobs:
           app-dir: builder
           pkg-manager: pip-dist
           pip-dependency-file: setup.py
+      - aws-s3/sync:
+          from: s3://${DRINK_DATA_BUCKET_NAME}
+          to: .
       - run:
           name: Generate menu and shopping list
           command: |
